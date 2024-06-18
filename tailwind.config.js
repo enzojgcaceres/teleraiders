@@ -4,29 +4,18 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-
-      colors: {
-        'black': '#000000',
-        'white': '#FFFFFF',
-        purple: {
-          600: '#800080',
+      backgroundSize: {
+        '400%': '400%', 
+      },
+      keyframes: {
+        iridescentAnimation: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
         },
-        pink: {
-          500: '#FF1493',
-        },
-        blue: {
-          900: '#1E3A8A',
-        },
-        lime: {
-          500: '#32CD32',
-        },
-        orange: {
-          500: '#FF4500',
-        },
-        gray: {
-          100: '#f0f0f0',
-          800: '#333333', // Puedes ajustar este color para un gris oscuro personalizado
-        },
+      },
+      animation: {
+        iridescent: 'iridescentAnimation 10s ease infinite',
       },
     },
   },

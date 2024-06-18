@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-iridescent {
+  background: linear-gradient(45deg, #343750, #3a0ca3, #4361ee, #4895ef, #46a3bf, #66c0a7, #5390d9, #6a4c93, #363854);
+  background-size: 400% 400%;
+  animation: iridescentAnimation 30s ease infinite;
+}
+
+@keyframes iridescentAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 body {
     @apply bg-white text-black;

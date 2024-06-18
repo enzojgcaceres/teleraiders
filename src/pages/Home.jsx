@@ -1,32 +1,22 @@
 // src/pages/Home.jsx
 
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Importa los estilos del carrusel
-
-import image1 from '../assets/carousel/Japan cover III.jpg'; // Asegúrate de tener estas imágenes en la carpeta assets
-import image2 from '../assets/carousel/Japan Cover.jpg';
-
+import { useTheme } from '../context/themeContext';
+import backgroundDark from '../assets/carousel/Japan Cover.jpg'; // Asegúrate de tener esta imagen en la carpeta assets
+import backgroundLight from '../assets/ligth/pexels-8moments-698275.jpg';
 
 const Home = () => {
+
+  const { theme } = useTheme();
+
+  const backgroundImage = theme === 'dark' ? backgroundDark : backgroundLight;
+
   return (
-    <div className="relative h-screen">
-      <Carousel
-        autoPlay
-        infiniteLoop
-        showThumbs={false}
-        showStatus={false}
-        showArrows={false}
-        className="absolute top-0 left-0 w-full h-full"
-      >
-        <div>
-          <img src={image1} alt="Image 1" className="object-cover w-full h-full" />
-        </div>
-        <div>
-          <img src={image2} alt="Image 2" className="object-cover w-full h-full" />
-        </div>
-      </Carousel>
-      <div className="absolute top-0 left-0 w-full h-full p-4 bg-white bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50 text-black dark:text-white flex flex-col justify-center items-center">
+    <div 
+      className="relative w-full h-auto min-h-screen bg-cover bg-center bg-no-repeat text-black dark:text-white"
+      style={{ backgroundImage: `url(${backgroundImage})`, height: '800px' }} // Aquí asegúrate de establecer la altura según la imagen
+    >
+      <div className="p-4 bg-white bg-opacity-70 dark:bg-gray-900 dark:bg-opacity-70 rounded max-w-4xl mx-auto my-8">
         <h1 className="text-4xl font-bold mb-4">Últimas Novedades</h1>
         <div className="space-y-4">
           <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded">
